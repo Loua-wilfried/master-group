@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Immobilier | Master Financial Group</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .banner {
+      background-image: url('images/immobilier-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .banner-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .banner-content p {
+      font-size: 1.5rem;
+    }
+
+    .offers {
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .offers h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .offer-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .offer-item {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .offer-item img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .offer-item h3 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    .services, .why-choose-us, .contact {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .services h2, .why-choose-us h2, .contact h2 {
+      margin-bottom: 1rem;
+    }
+
+    .services ul, .why-choose-us ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .services ul li, .why-choose-us ul li {
+      margin: 0.5rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #ffd700;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    .immobilier-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.immobilier-slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.immobilier-slider .slide.active {
+  opacity: 1;
+}
+
+.banner-content {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner-content p {
+  font-size: 1.3rem;
+}
+
+.offers {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.offers h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.offer-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.offer-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  text-align: center;
+}
+
+.offer-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.offer-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer-item p {
+  margin: 0.3rem 0;
+}
+
+.offer-item .btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0056b3;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.offer-item .btn:hover {
+  background-color: #003d80;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="finance.html">Offres</a></li>
+        <li><a href="agriculture.html">Actualité</a></li>
+        <li><a href="technologie.html">Nos prestation</a></li>
+        <li><a href="immobilier.html">A-Propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Bannière Slider Immobilier -->
+<section class="immobilier-slider">
+  <div class="slide active" style="background-image: url('immodedans.jpg');">
+    <div class="banner-content">
+      <h1>Master Immo CI</h1>
+      <p>Investissez dans l’immobilier africain avec confiance et sérénité.</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('immodedans1.jpg');">
+    <div class="banner-content">
+      <h1>Villas & Résidences</h1>
+      <p>Découvrez nos villas modernes à Abidjan, Grand-Bassam, Bingerville...</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('immodedans2.jpg');">
+    <div class="banner-content">
+      <h1>Terrains sécurisés</h1>
+      <p>Achetez des terrains viabilisés avec documents à jour.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Nos Offres -->
+ <section class="offers">
+  <h2>Nos Offres</h2>
+  <div class="offer-list">
+    <div class="offer-item">
+      <img src="immoimage.jpg" alt="Villa à Bingerville">
+      <h3>Villa à Bingerville</h3>
+      <p>4 pièces - 310 m²</p>
+      <p><strong>65 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+
+    <div class="offer-item">
+      <img src="terrain.jpg" alt="Terrain à Cocody">
+      <h3>Terrain à Cocody</h3>
+      <p>500 m²</p>
+      <p><strong>7 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+
+    <div class="offer-item">
+      <img src="immodedans2.jpg" alt="Villa à Yopougon">
+      <h3>Villa à Yopougon</h3>
+      <p>5 pièces - 400 m²</p>
+      <p><strong>80 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+  </div>
+</section>
+</section>
+
+  <!-- Nos Offres -->
+ <section class="offers">
+  <div class="offer-list">
+    <div class="offer-item">
+      <img src="immoimage.jpg" alt="Villa à Bingerville">
+      <h3>Villa à Bingerville</h3>
+      <p>4 pièces - 310 m²</p>
+      <p><strong>65 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+
+    <div class="offer-item">
+      <img src="terrain.jpg" alt="Terrain à Cocody">
+      <h3>Terrain à Cocody</h3>
+      <p>500 m²</p>
+      <p><strong>7 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+
+    <div class="offer-item">
+      <img src="immodedans2.jpg" alt="Villa à Yopougon">
+      <h3>Villa à Yopougon</h3>
+      <p>5 pièces - 400 m²</p>
+      <p><strong>80 000 000 FCFA</strong></p>
+      <a href="#" class="btn">Voir l'offre</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Nos Services -->
+  <section class="services">
+    <h2>Nos Services</h2>
+    <ul>
+      <li>Vente de terrains et de villas</li>
+      <li>Promotion immobilière</li>
+      <li>Gestion locative</li>
+      <li>Conseils en investissement</li>
+    </ul>
+  </section>
+
+  <!-- Pourquoi choisir Master Immo CI ? -->
+  <section class="why-choose-us">
+    <h2>Pourquoi choisir Master Immo CI ?</h2>
+    <ul>
+      <li>Plus de 20 ans d'expérience sur le marché ivoirien</li>
+      <li>Équipe réactive et professionnelle</li>
+      <li>99% de clients satisfaits</li>
+      <li>Présence sur l'ensemble du territoire ivoirien</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contactez-nous</h2>
+    <p>Pour plus d'informations ou pour planifier une visite, n'hésitez pas à nous contacter.</p>
+    <a href="contact.html" class="btn">Nous contacter</a>
+  </section>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2025 Master Financial Group - Tous droits réservés.</p>
+  </footer>
+<script>
+  const slides = document.querySelectorAll('.immobilier-slider .slide');
+  let currentSlide = 0;
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  setInterval(showNextSlide, 5000); // Change toutes les 5 secondes
+</script>
+
+</body>
+</html>
