@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Financial Group</title>
+  <style>
+    :root {
+      --primary-color: #1a3c6e;
+      --secondary-color: #f0a500;
+      --tertiary-color: #e6e6e6;
+      --text-color: #333333;
+      --light-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: var(--light-text);
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      position: relative;
+      margin-left: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--light-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 4px;
+      padding: 0.5rem 0;
+    }
+
+    .dropdown-content a {
+      color: var(--text-color);
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--tertiary-color);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1200x600?text=Master+Finance') center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-text);
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary-color);
+      color: var(--light-text);
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #d99000;
+    }
+
+    .sections {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      color: #777;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+
+    .service-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: var(--light-text);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-column h3 {
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--light-text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+
+    .hero-slider {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero-slider {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #ffd700;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-img">
+            <img src="logo.png" alt="Logo" width="50" height="50" />
+          </div>
+          Master Financial Group
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">À Propos</a></li>
+          <li class="dropdown">
+            <a href="#">Secteurs d'Activité</a>
+            <div class="dropdown-content">
+              <a href="https://hes-finances.com/en/">Finance</a>
+              <a href="#">Agriculture</a>
+              <a href="#">Technologie</a>
+              <a href="immo.html">Immobilier</a>
+              <a href="#">Services</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Engagement Social</a>
+            <div class="dropdown-content">
+              <a href="#">Finance à Impact</a>
+              <a href="#">Autonomisation de la Femme</a>
+              <a href="#">Développement Durable</a>
+            </div>
+          </li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-slider">
+    <div class="slide active" style="background-image: url('finance.jpg');">
+      <div class="hero-content">
+        <h1>Finance</h1>
+        <p>Solutions innovantes pour la microfinance avec Master Finance CI, Niger et Master Cash CI.</p>
+        <a href="https://hes-finances.com/en/" class="btn">Découvrir la finance</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('agri.jpg');">
+      <div class="hero-content">
+        <h1>Agriculture</h1>
+        <p>Des équipements agricoles performants avec Master Agri et Équipement.</p>
+        <a href="#" class="btn">Découvrir l'agriculture</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('tech.jpg');">
+      <div class="hero-content">
+        <h1>Technologie</h1>
+        <p>Transformation digitale pour l’Afrique avec Master Technologie.</p>
+        <a href="#" class="btn">Découvrir la technologie</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('immo.jpg');">
+      <div class="hero-content">
+        <h1>Immobilier</h1>
+        <p>Investissez dans l’immobilier africain avec Master Immo CI.</p>
+        <a href="immo.html" class="btn">Découvrir l'immobilier</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('service.jpg');">
+      <div class="hero-content">
+        <h1>Services</h1>
+        <p>Exportation, logistique et commerce avec Master Trade of Africa.</p>
+        <a href="#" class="btn">Découvrir nos services</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sections">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nos Secteurs d'Activité</h2>
+        <p>Découvrez notre expertise dans divers domaines pour répondre à tous vos besoins.</p>
+      </div>
+
+      <div class="services">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="service.jpg" alt="Finance" />
+          </div>
+          <div class="service-content">
+            <h3>Finance</h3>
+            <p>Nos services financiers comprennent Master Finance CI, Master Finance Niger et Master Cash CI pour tous vos besoins de microfinance et solutions financières.</p>
+            <a href="https://hes-finances.com/en/" class="btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="agri.jpg" alt="Agriculture" />
+          </div>
+          <div class="service-content">
+            <h3>Agriculture</h3>
+            <p>Master Agri et Équipement propose des solutions et équipements agricoles de qualité pour améliorer votre productivité.</p>
+            <a href="#" class="btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="tech.jpg" alt="Technologie" />
+          </div>
+          <div class="service-content">
+            <h3>Technologie</h3>
+            <p>Master Technologie vous accompagne dans votre transition numérique avec des solutions innovantes et adaptées.</p>
+            <a href="#" class="btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="immo.jpg" alt="Immobilier" />
+          </div>
+          <div class="service-content">
+            <h3>Immobilier</h3>
+            <p>Master Immo CI se spécialise dans la construction, commercialisation et gestion de biens immobiliers.</p>
+            <a href="immo.html" class="btn">En savoir plus</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="service.jpg" alt="Services" />
+          </div>
+          <div class="service-content">
+            <h3>Services</h3>
+            <p>Master Trade of Africa vous propose des services spécialisés pour développer vos activités sur le continent africain.</p>
+            <a href="#" class="btn">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Master Financial Group</h3>
+          <p>Votre partenaire de confiance pour le développement économique et social en Afrique.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Secteurs d'Activité</h3>
+          <ul class="footer-links">
+            <li><a href="https://hes-finances.com/en/">Finance</a></li>
+            <li><a href="#">Agriculture</a></li>
+            <li><a href="#">Technologie</a></li>
+            <li><a href="immo.html">Immobilier</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Engagement Social</h3>
+          <ul class="footer-links">
+            <li><a href="#">Finance à Impact</a></li>
+            <li><a href="#">Autonomisation de la Femme</a></li>
+            <li><a href="#">Développement Durable</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li>Email: contact@masterfinancialgroup.com</li>
+            <li>Téléphone: +225 07 87 78 19 81</li>
+            <li>Adresse: Abidjan, Côte d'Ivoire</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Master Financial Group. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showNextSlide() {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }
+
+    setInterval(showNextSlide, 5000); // Change slide every 5 seconds
+  </script>
+
+s
+</body>
+</html>
